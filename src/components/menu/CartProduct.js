@@ -14,7 +14,7 @@ export default function CartProduct({product,onRemove}) {
         </h3>
         {product.size && (
           <div className="text-sm">
-            Size: <span>{product.size.name}</span>
+            גודל: <span>{product.size.name}</span>
           </div>
         )}
         {product.extras?.length > 0 && (

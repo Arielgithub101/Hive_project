@@ -1,5 +1,8 @@
 import Right from "@/components/icons/Right";
+import Bee from "@/components/icons/bee";
 import Image from "next/image";
+import Link from "next/link";
+
 
 export default function Hero() {
   return (
@@ -8,21 +11,27 @@ export default function Hero() {
         <h1 className="text-4xl font-semibold">
           Everything<br />
           is better<br />
-          with a&nbsp;
+          with Bee&nbsp;
           <span className="text-primary">
             Pizza
           </span>
+          <div className="flex items-center ">
+          <div className="w-10 h-10 ml-2"><Bee /></div>
+          <div className="w-10 h-10 ml-2"><Bee /></div>
+          <div className="w-10 h-10 ml-2"><Bee /></div>
+          <div className="w-10 h-10 ml-2"><Bee /></div>
+          </div>
         </h1>
         <p className="my-6 text-gray-500 text-sm">
           Pizza is the missing piece that makes every day complete, a simple yet delicious joy in life
         </p>
         <div className="flex gap-4 text-sm">
-          <button className="flex justify-center bg-primary uppercase flex items-center gap-2 text-white px-4 py-2 rounded-full">
-            Order now
+          <button className="flex justify-center bg-primary uppercase flex items-center gap-2 text-black px-4 py-2 rounded-full">
+            <Link href={'/menu'}>!! הזמן עכשיו</Link>
             <Right />
           </button>
-          <button className="flex items-center border-0 gap-2 py-2 text-gray-600 font-semibold">
-            Learn more
+          <button className="flex justify-center uppercase flex items-center gap-2 text-BLACK px-4 py-2 rounded-full">
+            למד עוד
             <Right />
           </button>
         </div>

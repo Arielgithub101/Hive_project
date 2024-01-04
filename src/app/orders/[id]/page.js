@@ -40,12 +40,12 @@ export default function OrderPage() {
       <div className="text-center">
         <SectionHeaders mainHeader="Your order" />
         <div className="mt-4 mb-8">
-          <p>Thanks for your order.</p>
-          <p>We will call you when your order will be on the way.</p>
+          <p>תודה על הזמנתך !!.</p>
+          <p>נתקשר אליך ונודיע כאשר השליח בדרך.</p>
         </div>
       </div>
       {loadingOrder && (
-        <div>Loading order...</div>
+        <div>טוען נתונים...</div>
       )}
       {order && (
         <div className="grid md:grid-cols-2 md:gap-16">
@@ -54,13 +54,13 @@ export default function OrderPage() {
               <CartProduct key={product._id} product={product} />
             ))}
             <div className="text-right py-2 text-gray-500">
-              Subtotal:
+              סכום בניים:
               <span className="text-black font-bold inline-block w-8">${subtotal}</span>
               <br />
-              Delivery:
+              משלוח:
               <span className="text-black font-bold inline-block w-8">$5</span>
               <br />
-              Total:
+              סכום סופי:
               <span className="text-black font-bold inline-block w-8">
                 ${subtotal + 5}
               </span>

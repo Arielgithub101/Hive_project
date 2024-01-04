@@ -1,15 +1,16 @@
 'use client';
 import SectionHeaders from "@/components/layout/SectionHeaders";
 import UserTabs from "@/components/layout/UserTabs";
-import {useProfile} from "@/components/UseProfile";
-import {dbTimeForHuman} from "@/libs/datetime";
+import { useProfile } from "@/components/UseProfile";
+import { dbTimeForHuman } from "@/libs/datetime";
 import Link from "next/link";
-import {useEffect, useState} from "react";
+import { useEffect, useState } from "react";
 
 export default function OrdersPage() {
   const [orders, setOrders] = useState([]);
   const [loadingOrders, setLoadingOrders] = useState(true);
-  const {loading, data:profile} = useProfile();
+  const [searchQuery, setSearchQuery] = useState('');
+  const { loading, data: profile } = useProfile();
 
   useEffect(() => {
     fetchOrders();
@@ -19,20 +20,38 @@ export default function OrdersPage() {
     setLoadingOrders(true);
     fetch('/api/orders').then(res => {
       res.json().then(orders => {
-        setOrders(orders.reverse());
+        // Sort orders by createdAt date, newest first
+        orders.sort((a, b) => new Date(b.createdAt) - new Date(a.createdAt));
+        setOrders(orders);
         setLoadingOrders(false);
       })
     })
   }
 
+  function handleSearch(event) {
+    setSearchQuery(event.target.value.toLowerCase());
+  }
+
+  const filteredOrders = orders.filter(order =>
+    (order.userEmail && order.userEmail.toLowerCase().includes(searchQuery)) ||
+    (order.cartProducts && order.cartProducts.some(p => p.name && p.name.toLowerCase().includes(searchQuery)))
+  );
+
   return (
     <section className="mt-8 max-w-2xl mx-auto">
       <UserTabs isAdmin={profile.admin} />
+      <input
+        type="text"
+        placeholder="Search orders..."
+        value={searchQuery}
+        onChange={handleSearch}
+        className="mb-4 p-2 border rounded mt-4"
+      />
       <div className="mt-8">
         {loadingOrders && (
-          <div>Loading orders...</div>
+          <div>טוען נתונים...</div>
         )}
-        {orders?.length > 0 && orders.map(order => (
+        {orders?.length > 0 && filteredOrders.map(order => (
           <div
             key={order._id}
             className="bg-gray-100 mb-2 p-4 rounded-lg flex flex-col md:flex-row items-center gap-6">
@@ -40,7 +59,7 @@ export default function OrdersPage() {
               <div>
                 <div className={
                   (order.paid ? 'bg-green-500' : 'bg-red-400')
-                  + ' p-2 rounded-md text-white w-24 text-center'
+                  + ' p-2 rounded-md text-black w-24 text-center'
                 }>
                   {order.paid ? 'Paid' : 'Not paid'}
                 </div>
@@ -56,8 +75,8 @@ export default function OrdersPage() {
               </div>
             </div>
             <div className="justify-end flex gap-2 items-center whitespace-nowrap">
-              <Link href={"/orders/"+order._id} className="button">
-                Show order
+              <Link href={"/orders/" + order._id} className="button">
+                הראה הזמנה
               </Link>
             </div>
           </div>
