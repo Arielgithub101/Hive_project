@@ -41,11 +41,12 @@ export default function OrderPage() {
         <SectionHeaders mainHeader="Your order" />
         <div className="mt-4 mb-8">
           <p>תודה על הזמנתך !!.</p>
-          <p>נתקשר אליך ונודיע כאשר השליח בדרך.</p>
+          <p>נתקשר אליך ונודיע כאשר השליח פיםמס🛵☎📞</p>
+          <p>אמייל עם פרטי ההזמנה נשלח אליך,אנא וודא שקיבלת ,המשך יום נעים!🍕😊🍕</p>
         </div>
       </div>
       {loadingOrder && (
-        <div>טוען נתונים...</div>
+        <div>😁🔃טוען נתונים...</div>
       )}
       {order && (
         <div className="grid md:grid-cols-2 md:gap-16">
@@ -55,14 +56,14 @@ export default function OrderPage() {
             ))}
             <div className="text-right py-2 text-gray-500">
               סכום בניים:
-              <span className="text-black font-bold inline-block w-8">${subtotal}</span>
+              <span className="text-black font-bold inline-block w-8">₪{subtotal}</span>
               <br />
               משלוח:
-              <span className="text-black font-bold inline-block w-8">$5</span>
+              <span className="text-black font-bold inline-block w-8">₪5</span>
               <br />
               סכום סופי:
               <span className="text-black font-bold inline-block w-8">
-                ${subtotal + 5}
+                ₪{subtotal + 5}
               </span>
             </div>
           </div>

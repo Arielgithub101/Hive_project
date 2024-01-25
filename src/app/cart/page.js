@@ -105,9 +105,9 @@ export default function CartPage() {
               סכום סופי :
             </div>
             <div className="font-semibold pl-2 text-right">
-              ${subtotal}<br />
-              $5<br />
-              ${subtotal + 5}
+              ₪{subtotal}<br />
+              ₪5<br />
+              ₪{subtotal + 5}
             </div>
           </div>
         </div>
@@ -118,7 +118,7 @@ export default function CartPage() {
               addressProps={address}
               setAddressProp={handleAddressChange}
             />
-            <button type="submit">לתשלום ${subtotal + 5}</button>
+            <button type="submit">לתשלום ₪{subtotal + 5}</button>
           </form>
         </div>
       </div>

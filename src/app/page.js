@@ -14,23 +14,35 @@ export default function Home() {
           mainHeader={'קצת עלינו'}
         />
         <div className="mx-auto mt-3 flex flex-col gap-9 lg:flex-row :justify-between items-center">
-          <div className="w-full lg:w-3/3 rounded-lg mb-4 lg:mb-0">
+          <div className="w-full lg:w-2/3 rounded-lg mb-4 lg:mb-0">
             <img
-              src="/sol1.jpeg" // Adjust the path to your left image
+              src="/pizzaSol1.jpeg" // Adjust the path to your left image
+              alt="Left Image"
+              className="w-full rounded-lg mb-4 lg:mb-0"
+            />
+            <div>...</div>
+            <img
+              src="/pizza3.jpeg" // Adjust the path to your left image
               alt="Left Image"
               className="w-full rounded-lg mb-4 lg:mb-0"
             />
           </div>
-          <div className="text-gray-700 text-lg max-w-md mx-auto mt-4 flex flex-col gap-4">
+          <div className="text-gray-700 text-lg max-w-lg mx-auto mt-4 flex flex-col gap-4">
             <p>
               חנות "פיצה - כווורת" נוצרה למען נוחיות החיילים אשר משרתים בבסיס ורוצים להנות מאוכל חם וטעים
             </p>
             <p>אתר "פיצה כוורת" נועד כדי לקצר שעות המתנה ולייעל את מערך ההזמנות של אוכל בבסיס, בעזרת הזמנה מראש תוכל להנות מאוכל חם וטרי ישר אליך למשרד !</p>
             <p>בעזרת מערך המשלוחים המיוחד שלנו אנו יכולים להגיע לכלל רחבי הבסיס במהירות שיא כדי לספק שירות מהיר ויעיל</p>
           </div>
-          <div className="w-full lg:w-3/3 rounded-lg mb-4 lg:mb-0">
+          <div className="w-full lg:w-2/3 rounded-lg mb-4 lg:mb-0">
             <img
-              src="/sol1.jpeg" // Adjust the path to your left image
+              src="/pizzaSoli2jpeg.jpeg" // Adjust the path to your left image
+              alt="Left Image"
+              className="w-full rounded-lg mb-4 lg:mb-0"
+            />
+            <div>...</div>
+            <img
+              src="/pizza4.jpeg" // Adjust the path to your left image
               alt="Left Image"
               className="w-full rounded-lg mb-4 lg:mb-0"
             />
